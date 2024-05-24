@@ -1,0 +1,42 @@
+<%- include('../partials/header'); %>
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <%  data.forEach(item => { %>
+                <div class="col-md-2">
+                    <div class="card h-100">
+                        <img src="/images/<%= item.album_cover %>" alt="image of <%= item.album_cover %>" class="img-fluid card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a href="/album/<%= item.album_id %>">
+                                    <%= item.title %> 
+                                </a>
+                            </h3>
+
+                            <p class="card-text">
+                                <% if (item.band == '') { %> 
+                                    <% if(item.alias == '') { %> 
+                                        <a href="/artist/<%= item.artist_id %>">
+                                            <%= item.fName %> <%= item.lName %>
+                                        </a>
+                                    <% } else { %>
+                                        <a href="/artist/<%= item.artist_id %>">
+                                            <%= item.alias %>
+                                        </a>
+                                    <% } %>
+                                <% } else { %> 
+                                    <a href="/band/<%= item.band_id %>">
+                                        <%= item.band %>
+                                    </a>
+                                <% } %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer'); %>

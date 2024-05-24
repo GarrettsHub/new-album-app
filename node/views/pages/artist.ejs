@@ -1,0 +1,32 @@
+<%- include('../partials/header'); %>
+
+<main class="main" id="artistMain">
+    <div class="container">
+        <div class="sort-row row">
+            <nav class="nav band-nav justify-content-evenly mb-3">
+                <a href="/artist/sort">sort artist</a>
+                <a href="/artist/form">add an artist</a>
+            </nav>
+        </div>
+        <div class="row">
+            <% data.forEach(item => { %>
+                <div class="col-md-3">
+                    <figure class="figure artist-figure" id="artistFigure<%= item.artist_id %>">
+                        <img src="/images/<%= item.artist_pic %>" alt="image of <%= item.fName %> <%= item.lName %> " class="img-fluid figure-img rounded" />
+                        <figcaption class="figure-caption">
+                            <a href="/artist/<%= item.artist_id %>" class="single-link">
+                                <% if (item.alias == null) { %>
+                                    <%= item.fName %> <%= item.lName %>
+                                <% } else { %>
+                                    <%= item.alias %>
+                                <% } %>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>

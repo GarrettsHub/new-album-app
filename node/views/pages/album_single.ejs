@@ -1,0 +1,48 @@
+<%- include('../partials/header'); %>
+
+<main class="main" id="albumSingleMain">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/images/<%= data.album_cover %>" alt="<%= data.album_cover %>" class="img-fluid rounded album-cover-single"/>
+            </div>
+            <div class="col-md-6">
+                <div class="toggle-pages d-flex justify-content-around">
+                    <% if (data.album_id > 1) { %> 
+                        <a href="/album/ <%= data.album_id - 1 %>" class="prev-link" id="prevLink">&lt;&lt; prev</a>
+                    <% } %>
+                    
+                    <% if (data.album_id < count) { %> 
+                        <a href="/album/ <%= data.album_id + 1 %>" class="next-link" id="nextLink">next &gt;&gt;</a>
+                    <% } %>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <%= data.title %>
+                    </li>
+                    <li class="list-group-item">
+                        <% if (data.band == '') { %>
+                            <% if (data.alias == '') { %>
+                                <%= data.fName %> <%= data.lName %>
+                            <% } else {%>
+                                <%= data.alias %>
+                            <% } %>
+                        <% } else { %>
+                            <%= data.band %>
+                        <% } %>
+                    </li>
+                    <li class="list-group-item">
+                        Year released: <%= data.yr_released %>
+                    </li>
+                    <li class="list-group-item">Label:
+                        <a href="/label/<%= data.label_id %>">
+                        <%= data.label %>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>

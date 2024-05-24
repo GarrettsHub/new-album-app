@@ -1,0 +1,126 @@
+* {box-sizing: border-box;}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #242325;
+}
+
+.my-nav {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 24px 40px;
+}
+
+.my-nav-list {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+}
+
+.my-nav-link {
+    font-family: "Protest Riot", sans-serif;
+    font-size: 26px;
+    color: #7EF36F;
+    padding: 0.5rem 0.75rem;
+    position: relative;
+    transition: 2s;
+}
+
+.my-nav-link:hover {
+    color: palevioletred;
+}
+
+.my-nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    z-index: -1;
+}
+
+.my-nav-link:hover::before {
+    animation: fill 1s forwards;
+}
+
+
+
+@keyframes fill {
+    0% {width: 0%; }
+    50% {
+        width: 100%;
+        height: 2px;
+        
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+}
+
+.sort-row {
+    padding-bottom: 15px;
+}
+
+.my-cap {
+    padding: 15px;
+}
+
+.genre-fig {
+    padding: 0 25px;
+}
+
+.figure-img {
+    width: 300px;
+    height: 300px;
+}
+
+.single-link {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, fantasy;
+    letter-spacing: 0.25em;
+    font-size: 22px;
+    /* text-decoration: none; */
+    color: palevioletred;
+}
+
+.feature {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, fantasy;
+    color: #d87093;
+}
+
+.my-btn {
+    border-radius: 50%;
+    background: none;
+}
+
+.artist-image, .band-image {
+    width: 300px;
+    height: 300px;
+}
+
+.new-link {
+    /* text-decoration: none; */
+    font-family: "Kalnia", serif;
+    color: #70d8b5;
+}
+
+.my-header {
+    font-family: "Protest Riot", sans-serif;
+    color: #7EF36F;
+}
+
+.aside {
+    margin-top: 35px;
+    padding-top: 35px;
+}
+
+.genre-figure {
+    padding: 25px 10px;
+}

@@ -1,0 +1,15 @@
+<%- include('../partials/header'); %>
+    <main class="main" id="main">
+        <div class="container">
+            <h1 class="text-capitalize">
+                album of the day: <span class="feature">
+                    <%= albumTitle %>
+                </span> 
+                by: <span class="feature">
+                    <%= artistRan %>
+                </span>
+            </h1>
+        </div>
+        <img src="/images/<%= image %>" class="rounded figure-img img-fluid d-block mx-auto" alt="">
+    </main>
+<%- include('../partials/footer'); %>

@@ -1,0 +1,38 @@
+<%- include('../partials/header'); %>
+
+<main class="main" id="bandMain">
+    <div class="container">
+        <div class="sort-row row">
+            <nav class="nav band-nav justify-content-evenly mb-3">
+                <a href="/band/sort">sort band</a>
+                <a href="/band/form">add a band</a>
+            </nav>
+            <form action="#">
+                <label for="bandSearch">Search Bands</label>
+                <input 
+                    type="search"
+                    class="form-control"
+                    name="bandSearch"
+                    id="bandSearch"
+                    value=""
+                />
+            </form>
+        </div>
+        <div class="row">
+            <% data.forEach(item => { %>
+                <div class="col-md-3">
+                    <figure class="figure band-figure" id="bandFigure<%= item.band_id %>">
+                        <img src="/images/<%= item.band_pic %>" alt="image of <%= item.band %> " class="img-fluid figure-img rounded" />
+                        <figcaption class="figure-caption">
+                            <a href="/band/<%= item.band_id %>" class="single-link">
+                                <%= item.band %>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>

@@ -1,0 +1,44 @@
+<%- include('../partials/header'); %>
+
+
+<main class="main" id="genreMain">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <% data.forEach(item => { %>
+                        <div class="col-sm-3">
+                            <figure class="figure">
+                                <img src="/images/<%= item.album_cover %>" alt="<%= item.album_cover %>" class="fluid-img figure-img genre-fig rounded">
+                                <figcaption class="figure-caption my-cap">
+                                    <% if (item.band == '') { %>
+                                        <a href="/artist/<%= item.artist_id %>">
+                                            <% if (item.alias == '') { %>
+                                                <%= item.fName %> <%= item.lName %>
+                                            <% } else { %>
+                                                <%= item.alias %>
+                                            <% } %>
+                                        </a>
+                                    <% } else { %>
+                                        <a href="/band/<%= item.band_id %>">
+                                            <%= item.band %>
+                                        </a>
+                                    <% } %>
+                                    |
+                                    <a href="/album/<%= item.album_id %>">
+                                        <%= item.title %>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <%- include('../partials/aside') %>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>

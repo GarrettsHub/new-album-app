@@ -1,0 +1,69 @@
+<%- include('../partials/header'); %>
+
+
+<main class="main" id="alFormMain">
+    <div class="container">
+        <form action="">
+            <h2>Add an Album</h2>
+            <div class="mb-3">
+                <label for="title" class="form-label">title</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    name="title" value="" 
+                    id="title" 
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">author</label>
+                <input 
+                    type="search" 
+                    class="form-control" 
+                    name="author" 
+                    value="" 
+                    required 
+                    id="author"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="yr_released" class="form-label">year released</label>
+                <input 
+                    type="number" 
+                    class="form-control"
+                    name="yr_released" 
+                    value=""
+                    id="yr_released"
+                    min="1900"
+                    max="2400"
+                    width="4"
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="album_cover" class="form-label">album control</label>
+                <input  
+                    type="file" 
+                    class="form-control" 
+                    name="album_cover" 
+                    value=""
+                    id="album_cover"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="label" class="form-label">label</label>
+                <input 
+                    type="search" 
+                    class="form-control" 
+                    name="label" 
+                    value=""
+                />
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>

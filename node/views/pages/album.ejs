@@ -1,0 +1,58 @@
+<%- include('../partials/header'); %>
+
+<main class="main" id="albumMain">
+    <div class="container">
+        <div class="sort-row row">
+            <nav class="nav justify-content-evenly" id="albumNav">
+                <p class="sort-text text-capitalize">sort albums:
+                    <a href="/album/sort">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"/>
+                    </svg>
+                    </a>
+                </p>
+                <a href="/album/form" class="text-capitalize nav-link">add an album</a>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <% data.forEach(item => {%> 
+                        <div class="col-sm-3">
+                            <figure class="figure album-figure">
+                                <img src="/images/<%= item.album_cover %>" alt="<%= item.title %> album cover" class="img-fluid album-cover rounded figure-img"/>
+                                <figcaption class="figure-caption">
+                                    <a href="/album/<%= item.album_id %>" class="single-link">
+                                        <%= item.title %>
+                                    </a> 
+                                </figcaption>
+                                <figcaption class="figure-caption my-cap">
+                                    <% if (item.band == '') { %>
+                                        <% if (item.alias == '') { %>
+                                            <a href="/artist/<%= item.artist_id %>" class="new-link">
+                                                <%= item.fName %> <%= item.lName %>
+                                            </a>
+                                        <% } else {%>
+                                            <a href="/artist/<%= item.artist_id %>" class="new-link">
+                                                <%= item.alias %>
+                                            </a>
+                                        <% } %>
+                                    <% } else { %>
+                                        <a href="/band/<%= item.band_id %>" class="new-link">
+                                            <%= item.band %>
+                                        </a>
+                                    <% } %>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <%- include('../partials/aside'); %>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer'); %>
